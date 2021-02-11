@@ -141,7 +141,7 @@
 
               <!--ACCORDION1/COLLAPSE1-->
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 my-3">
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item" style="border-color: black; border-style: solid; border-width: 5px;">
                           <h2 class="accordion-header" id="flush-headingOne">
@@ -454,7 +454,7 @@
 
                     <!--ACCORDION2/COLLAPSE2-->
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 my-3">
                     <div class="accordion accordion-flush" id="accordionFlushExample2">
                         <div class="accordion-item " style="border-color: black; border-style: solid; border-width: 5px;">
                           <h2 class="accordion-header" id="flush-headingSixteen">
@@ -805,9 +805,9 @@
                                     <p class="h5">COLOR</p>
                                 </div>
                                 <div class="container-fluid">
-                                        <div class="card-body text-center">
-                                          <button class="btn btn-warning" id="color-picker-1">SELECT COLOR</button>
-                                        </div>
+                                  <div class="card-body">
+                                    <input type="color">
+                                  </div>
                                 </div>
                             </div>
                             <div class="container-fluid my-3">
@@ -815,8 +815,10 @@
                                     <p class="h5">PRICE</p>
                                 </div>
                                 <div class="container-fluid">
-                                    <p style="color:papayawhip;"> 50-----60-----70-----80-----90-----100</p>
-                                    <input type="range" class="form-range" min="50" max="100" step="10" id="customRange3">
+                                  <div class="range-wrap">
+                                    <input type="range" class="range">
+                                    <output class="bubble"></output>
+                                  </div>
                                 </div>
                             </div>
                             <div class="container-fluid d-flex justify-content-center my-3">
@@ -831,6 +833,7 @@
                                   </div>
                                 </button>  
                             </div>
+                            
                         </div>
 
                     </div>
@@ -849,6 +852,30 @@
     <!--SCRIPT-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script>
+          const allRanges = document.querySelectorAll(".range-wrap");
+          allRanges.forEach(wrap => {
+              const range = wrap.querySelector(".range");
+              const bubble = wrap.querySelector(".bubble");
+
+              range.addEventListener("input", () => {
+                setBubble(range, bubble);
+              });
+              setBubble(range, bubble);
+          });
+
+          function setBubble(range, bubble) {
+            const val = range.value;
+            const min = range.min ? range.min : 0;
+            const max = range.max ? range.max : 100;
+            const newVal = Number(((val - min) * 100) / (max - min));
+            bubble.innerHTML = val;
+
+            // Sorta magic numbers based on size of the native UI thumb
+            bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+          }
+
+    </script>
 
     </body>
 
