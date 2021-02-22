@@ -184,14 +184,14 @@
           </div>
 
 
-            <div class="row" id="ppal">
 
-              <div id="searchDiv" hidden>
-                <p>Resoults</p>
+              <div class ="container-fluid" id="searchDiv">
+              
               </div>
 
               <!--ACCORDION1/COLLAPSE1-->
 
+              <div class="row" id="ppal">
                 <div class="col-lg-4 my-3">
                     <div class="accordion accordion-flush" id="accordionCamisetas1">
                         <div class="accordion-item" style="border-color: black; border-style: solid; border-width: 5px;">
@@ -1071,8 +1071,6 @@
           bag.push(spurs);
         }
 
-        debugger
-
       }
 
       function mostrar(){
@@ -1129,7 +1127,7 @@
       const searchBut = document.getElementById("searchBut");
       var busqueda = document.getElementById("searchInput");
 
-      var search = {};
+      var players = {};
       
       searchBut.addEventListener("click",function(event){
         document.getElementById("ppal").style.visibility = 'hidden';
@@ -1137,7 +1135,6 @@
         document.getElementById("textAbovePpal").innerHTML = "SEARCH";
         event.preventDefault();
         fetch("https://www.balldontlie.io/api/v1/players?search="+busqueda.value,
-        //fetch("https://api.sportsdata.io/api/nba/fantasy/json/Players",
         {
           method: 'GET',
           headers:{
@@ -1156,26 +1153,52 @@
       .then(r=>{
         players = r;
         debugger
-        showPlayers();
+        showPlayers(players.data);
       })
 
       .catch(e=> console.log(e));
       })
 
-      function showPlayers(){
-        let html = '';
-        players.forEach(function(player, i){
-          html += '<div class="col">'
-                        +'<div class="card" style="width: 18rem;">'
-                          + '<div class="card-body">'
-                          +  `<h5 class="card-title">${player.first_name}</h5>`
-                          +  `<h5 class="card-title">${player.last_name}</h5>`
-                          +'</div>'
-                        +'</div>'
-                      +'</div>';
-        })
-        document.getElementById("searchDiv").innerHTML = html;
-        document.getElementById("searchDiv").style.visibility = 'visible';
+      function showPlayers(players){
+
+        document.getElementById("searchDiv").innerHTML ="";
+
+        for(var i = 0;i<players.length;i++){
+
+          const div = document.createElement("div");
+          const div1 = document.createElement("div");
+          const div2 = document.createElement("div");
+          const div3 = document.createElement("div");
+          const p1 = document.createElement("p");
+          const p2 = document.createElement("p");
+          debugger
+
+          p1.textContent = "PLAYER : " + players[i].first_name.toUpperCase() + " " + players[i].last_name.toUpperCase();
+          p2.textContent = "TEAM : " + players[i].team.full_name.toUpperCase();
+          debugger
+          div1.appendChild(p1);
+          div2.appendChild(p2);
+          div3.appendChild(div1);
+          div3.appendChild(div2);
+          div3.style.padding = "20px 20px 20px 20px";
+          div.appendChild(div3);
+          div.style.border = "thick solid #000000";
+          debugger
+
+          document.getElementById("searchDiv").appendChild(div);
+          debugger
+        }
+        
+        if(players.length == 0){
+          const div = document.createElement("div");
+          const p1 = document.createElement("p");
+          p1.textContent = "NO MATCH FOUND";
+          p1.style.fontSize = "x-large";
+          div.appendChild(p1);
+          document.getElementById("searchDiv").appendChild(div);
+        }
+        
+        debugger
       }
 
     </script>
