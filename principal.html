@@ -15,13 +15,13 @@
       <!--NAVIGATION BAR-->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="imagenes/nba.jpg" class="img-fluid" width="100"></a>
+        <div class="container-fluid d-flex justify-content-center">
+            <a class="navbar-brand" href="#"><img src="imagenes/nba.jpg" class="img-fluid" width="100px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarsExample03">
-                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <div class="collapse navbar-collapse" id="navbarsExample03"> <!--Cuando se colapse el navbar esto ira dentro-->
+                <ul class="navbar-nav me-auto my-2">
                   <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="principal.html" >Home</a>
                   </li>
@@ -39,81 +39,111 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="shop.html">Shop</a> <!--Como ir a una pagina que cree?-->
+                    <a class="nav-link" href="shop.html">Shop</a>
                   </li>
                 </ul>
-                <form class="d-flex mx-2">
-                    <input class="form-control p-2 mx-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success mx-2" type="submit">Search</button>
-                </form>
                 
-                <form class="d-flex flex-column">
-                  <input type="email" name="email" class="form-control bg-white my-2" placeholder="email">
-                  <input type="password" name="password" class="form-control bg-white my-2" placeholder="password">
-                  <button class="btn btn-danger my-2">Log In</button>
-                  <div class="container-fluid align-items-center">
-                    <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">SIGN UP</button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">FILL BLANKS</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="d-flex">
+                    <form class="container-fluid d-flex justify-content-end">
+                      <div class="container-fluid align-items-center">
+                        <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#loginmodal" style="min-width: 100px;">LOG IN</button>
+                        <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!--Modal popup-->
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="LogInBlanks">FILL BLANKS</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form class="row g-3 needs-validation" novalidate>
+                                    <div class="col-md-4">
+                                      <label for="validationCustom01" class="form-label">EMAIL</label>
+                                      <input type="email" class="form-control" id="emailLogIn" required>
+                                    </div>
+                                    <div class="col-md-4 my-2">
+                                      <label for="validationCustom02" class="form-label">PASSWORD</label>
+                                      <input type="password" class="form-control" id="passwordLogIn" required>
+                                    </div>
+                                    <div class="col-12">
+                                      <button class="btn btn-primary" type="submit">LOG IN</button>
+                                    </div>
+                                  </form>
+                                </div> 
+                              </div>
                             </div>
-                            <div class="modal-body">
-                              <form class="row g-3 needs-validation" novalidate>
-                                <div class="col-md-4">
-                                  <label for="validationCustom01" class="form-label">First name</label>
-                                  <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <label for="validationCustom02" class="form-label">Last name</label>
-                                  <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <label for="validationCustomUsername" class="form-label">Username</label>
-                                  <div class="input-group has-validation">
-                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                      Please choose a username.
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <label for="validationCustom03" class="form-label">Email</label>
-                                  <input type="text" class="form-control" id="validationCustom03" required>
-                                  <div class="invalid-feedback">
-                                    Please provide a valid email.
-                                  </div>
-                                </div>
-                                <div class="col-12">
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                    <label class="form-check-label" for="invalidCheck">
-                                      Agree to terms and conditions
-                                    </label>
-                                    <div class="invalid-feedback">
-                                      You must agree before submitting.
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">SIGN UP</button>
-                                </div>
-                              </form>
-                            </div> 
                           </div>
-                        </div>
                       </div>
+                    </form>
+                    <form class="container-fluid d-flex justify-content-center">
+                      <div class="container-fluid align-items-center">
+                        <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#signupmodal" style="min-width: 100px;">SIGN UP</button>
+                        <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!--Modal popup-->
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="LogInBlanks">FILL BLANKS</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form class="row g-3 needs-validation" novalidate>
+                                    <div class="col-md-4">
+                                      <label for="validationCustom01" class="form-label">First name</label>
+                                      <input type="text" class="form-control" id="validationCustom01" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4 my-3">
+                                      <label for="validationCustomUsername" class="form-label">Username</label>
+                                      <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                          Please choose a username.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 my-3">
+                                      <label for="validationCustom03" class="form-label">City</label>
+                                      <input type="text" class="form-control" id="validationCustom03" required>
+                                      <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3 my-3">
+                                      <label for="validationCustom05" class="form-label">Email</label>
+                                      <input type="email" class="form-control" id="validationCustom05" required>
+                                      <div class="invalid-feedback">
+                                        Please provide a valid email.
+                                      </div>
+                                    </div>
+                                    <div class="col-12 my-3">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                        <label class="form-check-label" for="invalidCheck">
+                                          Agree to terms and conditions
+                                        </label>
+                                        <div class="invalid-feedback">
+                                          You must agree before submitting.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                  </form>
+                                </div> 
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </form>
+                    <form class="d-flex align-items-center justify-content-center">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="min-width: 3cm; max-height: 1cm;">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
-              </form>
+                
             </div>
         </div>
     </nav>
@@ -127,8 +157,8 @@
         <div class="container-fluid bg-secondary">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm">
-                        <p class="h1 text-center">
+                    <div class="col-sm-12 my-3">
+                        <p class="h1 text-center" id="textAbovePpal">
                             BEST FIVE PLAYERS OF THE 20/21 NBA SEASON
                         </p>
                     </div>
@@ -137,14 +167,14 @@
 
             <!--CAROUSEL-->
 
-            <div class="container-fluid my-4">
-              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="container-fluid my-4" style="max-width: 500px;">
+              <div id="carouselImagesPlayers" class="carousel slide" data-bs-ride="carousel" y>
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                  <button type="button" data-bs-target="#carouselImagesPlayers" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselImagesPlayers" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselImagesPlayers" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselImagesPlayers" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carouselImagesPlayers" data-bs-slide-to="4" aria-label="Slide 5"></button>
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -172,7 +202,7 @@
 
               <div class="col-sm my-4">
                     <div class="container-fluid">
-                        <table class="table bg-light">
+                        <table class="table bg-light" id="tableInfo">
                             <thead>
                               <tr class="table-primary">
                                 <th scope="col">NAME</th>
@@ -232,14 +262,14 @@
                <!--ACCORDION/COLLAPSE-->
 
                 <div class="col-sm my-4" style="border-color: black; border-width: 2px;">
-                    <div class="accordion accordion-flush" id="accordionFlushExample" style="border-color: black; border-width: 2px; border-style: solid;">
+                    <div class="accordion accordion-flush" id="accordionPlayers" style="border-color: black; border-width: 2px; border-style: solid;">
                         <div class="accordion-item ">
                           <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 LUKA DONCIC
                             </button>
                           </h2>
-                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#v">
                             <div class="accordion-body bg-light">
                                 <div class="item1 bg">
                                     <p>NATIONALITY: SLOVENIA <img src="imagenes/eslovenia.svg" class="img-fluid" width="20"></p>
@@ -255,7 +285,7 @@
                                     LEBRON JAMES
                             </button>
                           </h2>
-                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionPlayers">
                             <div class="accordion-body bg-light">
                                 <div class="item2">
                                     <p>NATIONALITY: USA <img src="imagenes/usa.svg" class="img-fluid" width="20"></p>
@@ -272,7 +302,7 @@
                                 KAWHI LEONARD
                             </button>
                           </h2>
-                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionPlayers">
                             <div class="accordion-body bg-light">
                                 <div class="item3">
                                     <p>NATIONALITY: USA <img src="imagenes/usa.svg" class="img-fluid" width="20"></p>
@@ -283,12 +313,12 @@
                           </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
+                            <h2 class="accordion-header" id="flush-headingFour">
                               <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                                 GIANNIS ANTETOKOUNMPO
                                 </button>
                             </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionPlayers">
                               <div class="accordion-body bg-light">
                                 <div class="item4">
                                     <p>NATIONALITY: GREECE <img src="imagenes/greece.svg" class="img-fluid" width="20"></p>
@@ -299,12 +329,12 @@
                             </div>
                           </div>
                           <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
+                            <h2 class="accordion-header" id="flush-headingFive">
                               <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                                 DAMIAN LILLARD
                               </button>
                             </h2>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionPlayers">
                               <div class="accordion-body bg-light">
                                 <div class="item5">
                                     <p>NATIONALITY: USA <img src="imagenes/usa.svg" class="img-fluid" width="20"></p>
@@ -351,7 +381,7 @@
 
               <div class="col-sm-2">
                 <div class="container-fluid my-3">
-                  <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#modalAlertShop">
                     Alerts 
                     <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2">
                       <span class="visually-hidden">
@@ -359,7 +389,7 @@
                           </span>
                         </span>
                       </button>
-                      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                      <div class="modal fade" id="modalAlertShop" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -381,13 +411,13 @@
                 
                 <div class="row">
                     <div class="col-sm">
-                        <div class="container-fluid">
+                        <div class="container-fluid" id="fatherselector">
                             <div class="container-fluid text-center ">
                                 <p class="h2">VOTE YOUR FAVOURITE PLAYER</p>
                             </div>
                             <div class="container-fluid my-3">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>SELECT PLAYER</option>
+                                <select class="form-select" aria-label="Default select example" id="selectorVote">
+                                    <option value="0" selected>SELECT PLAYER</option>
                                     <option value="1">LUKA DONCIC</option>
                                     <option value="2">LEBRON JAMES</option>
                                     <option value="3">KAWHI LEONARD</option>
@@ -395,29 +425,40 @@
                                     <option value="5">DAMIAN LILLARD</option>
                                 </select>
                             </div>
+                            
                             <div class="container-fluid align-items-center d-flex justify-content-center my-3">
-                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal3">SEND VOTE</button>
-                                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                                    <div class="modal-dialog modal-xl">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">PUT YOUR EMAIL</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <input type="text" name="emailVote">
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-primary">Send Vote</button>
-                                        </div>
-                                      </div>
+                              <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="comprobacionesSend()">
+                                SEND VOTE
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">NBA VOTES 2021</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body" id="votesBody">
+                                      <label for="emailVote" id="labelEmail">EMAIL</label>
+                                      <input style="margin-left: 1cm;" type="email" id="emailVote" required>
+                                      <p class="h5 my-3 " id="pSelect">PLEASE, SELECT ONE OPTION</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="submit" class="btn btn-secondary" id="botonClose" data-bs-dismiss="modal" hidden>Close</button>
+                                      <button type="submit" class="btn btn-primary" id="botonSend" onclick="restauracion()">SEND VOTE</button>
                                     </div>
                                   </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                              </div>                              
+                             </div>
+                          </div>
+                      </div>
+                  </div>
+            
+          </div>
+
+        </div>
     </main>
         
     <!--FOOTER-->
@@ -431,6 +472,77 @@
     <!--SCRIPT-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script>
+
+      function comprobacionesSend(){
+
+        var index = document.getElementById("selectorVote");
+        var vote;
+
+          if(index.value == 0){
+
+            document.getElementById("botonSend").style.visibility = 'hidden';
+            document.getElementById("botonClose").style.visibility = 'visible';
+
+            document.getElementById("labelEmail").style.visibility = 'hidden';
+            document.getElementById("emailVote").style.visibility = 'hidden';
+
+            document.getElementById("pSelect").style.visibility = 'visible';
+
+          }else{ 
+
+            document.getElementById("botonSend").style.visibility = 'visible';
+            document.getElementById("botonClose").style.visibility = 'hidden';
+
+            document.getElementById("labelEmail").style.visibility = 'visible';
+            document.getElementById("emailVote").style.visibility = 'visible';
+
+            document.getElementById("pSelect").style.visibility = 'hidden';
+
+            document.getElementById("emailVote").value = "";
+
+            if(index.value == 1){
+              vote="Luka Doncic";
+            }else if(index.value == 2){
+              vote="Lebron James";
+            }else if(index.value == 3){
+              vote="Kawhi Leonard";
+            }else if(index.value == 4){
+              vote="Giannis Antetokoumpo";
+            }if(index.value == 5){
+              vote="Damian Lillard";
+            }
+
+           }
+      }
+
+      function restauracion(){
+
+        re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        var email = document.getElementById("emailVote").value;
+        if(re.exec(email)){
+          
+          document.getElementById("emailVote").value = "";
+          document.getElementById("emailVote").style.background = "white";
+
+        }else{
+
+          document.getElementById("emailVote").value = "WRONG EMAIL";
+          document.getElementById("emailVote").style.background = "red";
+
+        }
+
+
+      }
+
+      function emailVote(){
+
+        
+
+      }
+
+    
+    </script>
     
   </body>
 
